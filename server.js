@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
 const bodyParser = require('body-parser');
@@ -28,7 +29,7 @@ app.post('/chat', async (req, res) => {
       messages: [{ role: 'user', content: userMessage }]
     }, {
       headers: {
-        'Authorization': `Bearer sk-proj-bSAuR09T2jWQthDRu50sT3BlbkFJzuvFJ0HSx01oGPKR4gJQ`,
+        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
         'Content-Type': 'application/json'
       }
     });
